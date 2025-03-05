@@ -1,0 +1,391 @@
+@import url('https://fonts.googleapis.com/css2?family=Roboto:ital,wght@0,100..900;1,100..900&display=swap');
+*{/*resetting the default*/
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+html,body{
+    line-height: 1.4;
+    font-weight: 300;
+    font-family: "Roboto", serif;
+}
+button{
+  padding :10px 15px;
+  border: none;
+  transition: 0.2s ease-in-out;
+}
+button:hover{
+    opacity: 0.8;
+    transition: 0.2s ease-in-out;
+}
+/*navigation*/
+nav{
+    box-shadow: 5px 5px 5px rgba(1,1,1,0.5);
+    position: sticky;
+    top:0;
+    margin-bottom: 32px;
+    background-color: white;
+    padding:10px;
+}
+.navigation {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+.container{
+    max-width:1200px;/*the container between the logo and bar*/
+    margin:0 auto;
+}
+.bar_icon{
+    font-size: 32px;
+}
+/*hero section*/
+.hero{
+    display: flex;
+    gap:100px;
+    justify-content: center;
+    align-items: center;
+}
+.hero_image img{
+    border-radius: 60%;
+    overflow: hidden;
+    animation: rotateImage 1s ease-in-out;
+}
+@keyframes rotateImage {
+    from {
+        transform: rotate(0deg);
+    }
+    to {
+        transform: rotate(360deg);
+    }
+}
+.hero_content{
+    display: flex;
+    flex-direction: column;
+    gap:20px;
+}
+.tag{
+    background-color: green;
+    padding:5px 10px;
+    color:white;
+    align-self: self-start;/*so that the button comes at the start*/
+}
+.hero_content h1{
+    font-size: 32px;
+    line-height: 1.2;
+    font-weight: 400;
+    border-right: 2px solid black;
+    width: 0; /* Start with no text visible */
+    white-space: nowrap; /* Prevents text from wrapping */
+    overflow: hidden; /* Ensures text stays hidden until revealed */
+
+    /* Applying two animations: typing and blinking cursor */
+    
+    /*typing     Animation name (defined in @keyframes)
+     The typing animation lasts 5 seconds
+     steps(22) - The text appears in 22 steps (1 per character)
+     infinite- The animation repeats forever
+     alternate- First cycle: Types text → Second cycle: Deletes text
+
+    blink	Animation name (defined in @keyframes)
+     0.5s - Blinking happens every 0.5 seconds
+     step-end - Blinking jumps instantly instead of fading
+     infinite- Cursor blinks forever*/
+
+    animation: typing 5s steps(22)  infinite alternate,/* Typing animation */
+     blink 0.5s step-end infinite;/* Blinking cursor animation */
+}
+/* Typing Effect */
+@keyframes typing {
+  /*1️⃣ 0% → No text (width: 0)
+    2️⃣ 50% → Full text appears (width: 22ch)
+    3️⃣ 100% → Text disappears (width: 0)
+    4️⃣ Repeats forever*/
+    0% { width: 0; } /* Start with no visible text */
+    50% { width: 22ch; } /* Text fully typed (22 characters) */
+    100% { width: 0; } /* Text disappears, restarting the loop */
+}
+
+/* Blinking Cursor Effect */
+@keyframes blink {
+    50% {
+        border-color: transparent; /* Cursor disappears and reappears */
+    }
+}
+.explore_btn{
+    background: gold;
+    align-self: self-start;
+}
+.features{
+    margin-top: 100px;
+    display: flex;
+    gap:60px;
+    justify-content: center;
+    align-items: center;
+    margin-bottom: 50px;
+}
+.feature{
+  display: flex;
+  flex-direction: column;
+  gap:20px;
+  padding: 20px;
+  transition: 0.2s ease-in-out;
+}
+.feature:hover{
+    transition: 0.2s ease-in-out;
+    box-shadow: 5px 5px 5px rgba(1,1,1,0.5);;
+}
+.feature img{
+    width: 100px;
+    height: 100px;
+    object-fit: cover;  
+}
+.divider{
+    border: 1px solid grey;
+    margin:20px 0;
+}
+/*menu section*/
+.menu{
+    display: flex;
+    flex-direction: column;
+    gap:50px;
+    margin:50px 0;
+    align-items: center;
+}
+.menu .tag{
+    align-self: center;
+}
+.grid_image{
+    border-radius: 10px;
+    transition: 0.2s ease-in-out;
+    width:100%;
+    height:100px;
+    border-radius: 0px;
+}
+.grid_image:hover{
+    transform: scale(1.05);
+    transition: 0.2s ease-in-out;
+}
+.grid {
+    display: grid;
+    grid-gap: 10px;
+    grid-template-columns:  repeat(4, minmax(100px, 1fr)); /* Ensures columns are at least 100px */
+    grid-template-areas:
+    "I4 I4 I2 I3"
+    "I4 I4 I2 I7"
+    "I5 I1 I6 I7";
+    grid-auto-flow: dense;
+    padding:10px;
+}
+
+/* Correct individual item grid assignments */
+.item1 { grid-area: I1; }
+.item2 { grid-area: I2; }
+.item3 { grid-area: I3; }
+.item4 { grid-area: I4; }
+.item5 { grid-area: I5; }
+.item6 { grid-area: I6; }
+.item7 { grid-area: I7; }
+
+/* Ensure .item1 is properly sized */
+.item1 {
+    width: 100%; /* Takes full width of assigned grid area */
+    height: 100%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    overflow: hidden;
+}
+.item2 {
+    
+    width: 100%; /* Takes full width of assigned grid area */
+    height: 100%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    overflow: hidden;
+}
+.item3 {
+   
+    width: 100%; /* Takes full width of assigned grid area */
+    height: 100%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    overflow: hidden;
+}
+.item4 {
+    width: 100%; /* Takes full width of assigned grid area */
+    height: 100%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    overflow: hidden;
+   
+}
+.item5 {
+    width: 100%; /* Takes full width of assigned grid area */
+    height: 100%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    overflow: hidden;
+}
+.item6 {
+    width: 100%; /* Takes full width of assigned grid area */
+    height: 100%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    overflow: hidden;
+}
+.item7 {
+    width: 100%; /* Takes full width of assigned grid area */
+    height: 100%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    overflow: hidden;
+}
+/* Fix image sizing */
+.grid img {
+    width: 100%; /* Ensures images fill their grid container */
+    height: 100%; 
+    object-fit: cover; /* Ensures proper cropping */
+   overflow: hidden;
+    object-position: 50% 50%;
+}
+/*footer*/
+footer{
+    background-color: darkgreen;
+}
+.link_lists h3{
+    margin-bottom: 10px;
+    color:white;
+}
+.link_lists ul{
+   list-style: none;
+}
+.link_lists ul li{
+   font-size: 16px;
+   margin-bottom: 5px;
+   color: white;
+   transition: 0.2s ease-in-out;
+ }
+ .link_lists li:hover{
+    font-size: 16px;
+    margin-bottom: 5px;
+    color: black;
+    transform: scale(1.05);
+    transition: 0.2s ease-in-out;
+    text-decoration: underline;
+  }
+.news_letter h3{
+    margin-bottom: 10px;
+    color:white;
+}
+.news_letter input{
+    padding:5px 40px;
+    margin-bottom: 10px;
+}
+.footer_container{
+    padding:32px;
+    display: flex;
+    justify-content: space-between;
+}
+.icon_container{
+    display: flex;
+    gap:15px;
+    font-size: 20px;
+}
+.icon{
+    color: white;
+    transition: 0.2s ease-in-out;
+}
+.icon:hover{
+    color:black;
+    transform: scale(1.05);
+    transition: 0.2s ease-in-out;
+}
+/*
+.grid{
+    display: grid;
+    gap:10px;
+    
+    grid-template-areas:
+    "I1 I1 I2 I3" 
+    "I1 I1 I2 I7"
+    "I4 I5 I6 I7";
+}
+.item1{
+  grid-area:I1;
+
+  width: 20px !important; 
+  height: 20px !important; 
+  display: flex; 
+  justify-content: center;
+  align-items: center;
+  overflow: hidden; 
+  grid-area: I1;
+}
+.item1 .item2 .item3 .item4 .item5 .item6 .item7 img {
+    width: 100%; 
+    height: auto; 
+    max-width: 20px; 
+}
+
+.item2{
+    grid-area:I2;
+  }
+  .item3{
+    grid-area:I3;
+  }
+  .item4{
+    grid-area:I4;
+  }
+  .item5{
+    grid-area:I5;
+  }
+  .item6{
+    grid-area:I6;
+  }
+  .item7{
+    grid-area:I7;
+  }*/
+@media(max-width:786px)
+{
+    .hero{
+       flex-direction: column;
+    }
+    .hero_image{
+      display: flex;
+      justify-content: center;
+    }
+    .hero_image img{
+       width:80%;
+       margin:0 auto;
+      }
+    .hero_content{
+        gap:10px;
+        padding:10px;
+    }
+    .hero_content h1{
+        font-size: 32px;
+        line-height: 1.2;
+    }
+    .features{
+        flex-direction: column;
+    }
+    .footer_container{
+        flex-direction: column;
+    }
+    .grid{
+        /*My current program uses grid-template-areas, which overrides how elements are placed inside the
+         grid.Even if I set grid-template-columns: 1fr;, the grid-template-areas will still position items 
+         based on the original design thats why fles direction col works because  It completely overrides 
+         CSS Grid and forces all child items (.item1, .item2, etc.) into a vertical stack.Since Flexbox does
+          not use grid-template-areas, it automatically aligns items in a single column.*/
+       display: flex;
+       flex-direction: column;
+    }
+}

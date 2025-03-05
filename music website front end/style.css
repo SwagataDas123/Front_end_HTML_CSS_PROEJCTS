@@ -1,0 +1,251 @@
+@import url('https://fonts.googleapis.com/css2?family=Roboto:ital,wght@0,100..900;1,100..900&display=swap');
+:root{/*color variable*/
+    --purple500:#281154;
+    --purple300:#270082;
+    --purple600:#1b0058;
+    --red600:#dc0000;
+    --body:#f9f6ff;
+}
+*{/*resetting the default*/
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+html,body{
+    line-height: 1.4;
+    font-weight: 300;
+    font-family: "Roboto", serif;
+    scroll-behavior: smooth;
+}
+section{
+    scroll-margin: 50px;/*the margin for the scroll pane is 50px for every section*/
+}
+ul{
+    list-style: none;
+}
+a{
+    text-decoration: none;
+    color:white;
+}
+.container{
+    max-width: 1200px;
+    margin:0 auto;
+}
+header{
+    background-color: var(--purple300);
+    position: sticky;
+    top: 0;
+    z-index: 100;
+    box-shadow: 5px 5px 5px rgba(0,0,0,0.5);
+}
+nav{
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    color: white;
+    padding:20px 0;
+}
+.logo{
+    font-size: 32px;
+    font-weight: 600;
+}
+nav ul{
+    display: flex;
+    gap:20px;
+}
+nav ul li{
+    border-bottom: 2px solid transparent;
+    transition: 0.2s ease-in;
+}
+nav ul li a{
+font-weight: 300;
+    font-size: 20px;
+}
+nav ul li:hover{
+    border-bottom: 2px solid white;
+    transition: 0.2s ease-in;
+}
+.hero-section{
+    background-image: url("images/img1.jpg");
+    background-repeat: no-repeat;
+    width:100vw;
+    height:100vh;
+    display: grid;/*centering is most easy with grid*/
+    color: white;
+    place-items: center;/*without this it comes at top center*/
+    text-align: center;
+}
+.hero-section .container{
+    display: flex;
+    flex-direction: column;
+    gap:20px;
+}
+.hero-section .container h1{
+    font-size: 72px;
+}
+.hero-section .container h3{
+    font-size: 32px;
+}
+.hero-section .container p{
+    color: white;
+}
+.music-section{
+    padding-top: 50px;
+    background-color: var(--purple500);
+}
+.music-section .container{
+    display: flex;
+    flex-direction: column;
+    gap:30px;
+    justify-content: center;
+    align-items: center;
+}
+.music-section .container h2{
+    color: white;
+    font-size: 25px;
+}
+.music-section .container h4{
+    color: white;
+    font-size: 25px;
+}
+button{
+    padding:10px 15px;
+    border: none;
+    transition: 0.2s ease-in-out;
+}
+button:hover{
+    opacity:0.8;
+    transition: 0.2s ease-in-out;
+}
+.primary-btn{
+    background-color: var(--red600);
+    color:white;
+}
+.secondary-btn{
+    background-color: var(--purple300);
+    color:white;
+}
+.music-section .container p{
+    color: white;
+    font-size: 20px;
+}
+.iphone-img{
+    margin-top: -400px;/*the spacing between the image and the before text is removed*/
+    position: relative;
+    top:400px;
+}
+.about-music{
+    padding-top:500px;/*the spacing between the image and the after text is incorporated as the text was initially coming behind the picture*/
+    display: grid;
+    place-items: center;
+    gap:50px;
+    text-align: center;
+    margin-bottom: 50px;
+}
+.about-music .container h3,p{
+    color: black;
+}
+.video-section {
+    /*Why is it the parent?
+It contains the .video-container and .container1.
+It is the outermost wrapping element.*/
+
+    min-height: 100vh;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    position: relative;/* Ensures child elements are positioned relative to this container */
+    z-index: 0;/* Default stacking order */
+    overflow: hidden;  /* Prevents content from overflowing outside this section */
+}
+.video-container {
+    /*Why is it the child?
+It is inside the <section class="video-section">.
+It inherits positioning behavior relative to the parent.
+
+Understanding top: 0; left: 0; with Parent & Child
+Since .video-container has position: absolute;, it positions itself relative to the closest positioned ancestor.
+
+📌 Key Rule:
+
+If no ancestor has position: relative;, the child will be positioned relative to the <body> (whole page).
+If a parent has position: relative;, the child will be positioned inside that parent.
+*/
+
+    position: absolute; /* Positions the video absolutely inside .video-section */
+    top: 0;  /* Positions the top edge at the very top */
+    left: 0;  /* Positions the left edge at the very left */
+    width: 100%;  /* Makes the video container span the full width */
+    height: 100%;  /* Makes the video container span the full height */
+    z-index: -1;  /* Moves the video behind other elements */
+}
+.video-container video {
+    width: 100%; /* Makes the video take the full width of its container */
+    height: 100%;  /* Makes the video take the full height of its container */
+    object-fit: cover;  /* Ensures the video covers the entire container without distortion */
+}
+.container1 {
+    /*position: relative; keeps the text in normal flow
+     Unlike absolute, relative does not remove the element from the normal document flow.
+    This means .container1 will stay in its expected position inside .video-section without 
+     overlapping other elements unnaturally.
+     
+     It has position: relative;, which means all absolute children inside will be positioned 
+     relative to this element.That’s why .video-container (with position: absolute;) will start
+      from the top-left of .video-section, not the whole page.*/
+    
+    position: relative;/* Keeps the text positioned normally (not absolute) */
+    z-index: 1; /* Ensures text appears above the video */
+    text-align: center;
+    color: white; /* Adjust for better contrast */
+    padding: 20px;
+    background: rgba(0, 0, 0, 0.5);/* Adds a semi-transparent black background to improve readability */
+    border-radius: 10px;  /* Rounds the corners of the background */
+    max-width: 80%;  /* Limits the width of the text box */
+}
+.container1 h3{
+    margin-bottom: 20px; /* Adds spacing below the heading */
+}
+.container1 p{
+    color:white;
+}
+.hero-section .video-section{
+    position: relative;
+    background-position: center;
+    background-size: cover;
+    background-repeat: no-repeat;
+}
+.gift-section{
+    display: flex;
+    justify-content: center;
+    margin:100px 0;
+    gap:50px;
+}
+.gift-content{
+    display: flex;
+    flex-direction: column;
+    gap:20px;
+}
+.footer-upper{
+    background-color: var(--purple600);
+    padding: 20px;
+}
+.footer-upper .container{
+    display: flex;
+    color:white;
+    justify-content: space-between;
+}
+.footer-upper h4{
+    padding-bottom: 10px;
+    border-bottom: 2px solid white;
+    margin-bottom: 10px;
+}
+.footer-lower{
+    background-color: var(--purple300);
+    padding: 20px;
+    display: flex;
+    justify-content: center;
+}
+.footer-lower p{
+    color:white;
+}

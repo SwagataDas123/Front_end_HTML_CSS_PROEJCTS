@@ -1,0 +1,92 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>grid gallery
+    </title>
+    <link rel="stylesheet" href="style.css">
+    <script src="https://kit.fontawesome.com/b2bd874c3c.js" crossorigin="anonymous"></script>
+</head>
+<body>
+    <h1>CSS grid</h1>
+    <!--grid_image class in img tag is not required in all these pics in this setup-->
+    <div class="container">
+        <div class="gallery-container h3 w2">
+            <div class="gallery-item">
+                <div class="item">
+                    <img class="grid_image" src="images/pizza.jpg" alt="img1">
+                </div>
+            </div>
+            </div>
+            <div class="gallery-container w3 h3">
+            <div class="gallery-item">
+                <div class="item">
+                    <img class="grid_image" src="images/pasta.jpg" alt="img2">
+                </div>
+            </div>
+            </div>
+            <div class="gallery-container w3 h3">
+                <div class="gallery-item">
+                    <div class="item">
+                        <img class="grid_image" src="images/thali.jpeg" alt="img3">
+                    </div>
+                </div>
+                </div>
+                <div class="gallery-container w2 h4">
+                    <div class="gallery-item">
+                        <div class="item">
+                            <img class="grid_image" src="images/rezala.jpg" alt="img4">
+                        </div>
+                    </div>
+                    </div>
+                    <div class="gallery-container w3 h2">
+                        <div class="gallery-item">
+                            <div class="item">
+                                <img class="grid_image" src="images/fried balls.jpg" alt="img5">
+                            </div>
+                        </div>
+                        </div>
+                        <div class="gallery-container w2 h3">
+                            <div class="gallery-item">
+                                <div class="item">
+                                    <img class="grid_image" src="images/dessert.jpg" alt="img6">
+                                </div>
+                            </div>
+                            </div>
+                            <div class="gallery-container w3 h2">
+                                <div class="gallery-item">
+                                    <div class="item">
+                                        <img class="grid_image" src="images/dosa.jpg" alt="img7">
+                                    </div>
+                              </div>
+                            </div>   
+    </div>
+</body>
+</html>
+
+<!--
+🔹 1. <div class="container">
+This is the main grid container.
+It uses display: grid; from your CSS, which organizes child elements into a grid layout.
+
+🔹 2. <div class="gallery-container h3 w2">
+This is an individual grid item inside .container.
+h3 class → The item spans 3 rows (as per .h3 { grid-row: span 3; }).
+w2 class → The item spans 2 columns (as per .w2 { grid-column: span 2; }).
+This means:
+The item will take 2 columns wide and 3 rows tall in the grid layout.
+
+🔹 3. <div class="gallery-item">
+Acts as a wrapper for the actual image content.
+Helps with positioning and applying styles.
+
+🔹 4. <div class="item">
+Another wrapper div inside .gallery-item.
+Ensures proper image styling (like overflow: hidden;).
+
+🔹 5. <img class="grid_image" src="images/pizza.jpg" alt="img1">
+The actual image inside the grid cell.
+grid_image class in img tag is not required in all thsi pics in this setup bcz its from a different html file
+under restaurant folder present in the same head folder 
+-->

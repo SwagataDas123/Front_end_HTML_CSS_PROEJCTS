@@ -1,0 +1,91 @@
+ /* Centering the container */
+ body {
+    display: flex;
+    justify-content: center;  /* Centers horizontally */
+    align-items: center;      /* Centers vertically */
+    height: 100vh;            /* Full viewport height */
+    margin: 0;
+    background-color: #f4f4f4; /* Light background for contrast */
+}
+.container {
+    display: grid;
+    grid-template-columns: repeat(4, 100px);
+    gap: 10px;
+    padding: 20px;
+    background: white;
+    border-radius: 10px;
+    box-shadow: 0px 4px 10px rgba(0, 0, 0, 0.1);
+}
+.item {
+    width: 100px;
+    height: 100px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 24px;
+    font-weight: bold;
+    color: white;
+    border-radius: 10px;
+}
+.item-1 { background-color: #FF5733; }   /* Red */
+.item-2 { background-color: #33FF57; }   /* Green */
+.item-3 { background-color: #3357FF; }   /* Blue */
+.item-4 { background-color: #F1C40F; }   /* Yellow */
+.item-5 { background-color: #9B59B6; }   /* Purple */
+.item-6 { background-color: #1ABC9C; }   /* Teal */
+.item-7 { background-color: #E74C3C; }   /* Red-Orange */
+.item-8 { background-color: #2ECC71; }   /* Light Green */
+.item-9 { background-color: #3498DB; }   /* Light Blue */
+.item-10 { background-color: #E67E22; } /* Orange */
+.item-11 { background-color: #BDC3C7; } /* Grey */
+.item-12 { background-color: #8E44AD; } /* Dark Purple */
+
+body{
+    overflow-x: hidden;/*to make horizontal scrolling go away*/
+}
+/*to make item1 relative to its parent container then we need to select the parent and give it position*/
+/*.container{
+    position: relative;static wont work bcss its default as it doesnt access top,right,left,bottom.
+    item1 is asking its parent whether it has a postion property now if it doesnt it asks the next and then next and so on
+}*/
+/*.item-1{
+    /* absolute positioned elements are removed from document flow and no space is created.Other elements
+    behave as if that element never existed.
+    left and right doesnt together make sense jsut like top and bototom together*/
+    /*position: absolute;/*The position CSS property sets how an element is positioned in a document. 
+    The top, right, bottom, and left properties determine the final location of positioned elements.They were
+    defining the item1 relative to the entire page*/
+    /*top:0px;
+    right:;
+    bottom:;
+    left:0px;*/
+    /*item 1 is half visible*/
+   /* top:-50px;
+    right:-50px;
+    /*z-index:-1;to make item1 appear behind item5
+}*/
+/*.item-1{
+    position: relative; use relative when element is to be kept in normal flow of document
+    top:100px; it pushed 100 px from top
+    left:100px; it pushed 100px from left
+}*/
+/*.item-1{
+    /*fixed kinda behaves like absolute as absolute positioned elements are removed from document flow.
+    Fixed element us always postioned relative to HTML element.
+    position: fixed; item1 is layered on item2 same as absolute psoition but when we scroll
+    we see difference that item1 follows us as we scroll when fixed
+    top:0px; it sticks to top of page
+    left:0px; it sticks to top left of page
+
+    we now have a header since top:0px but we have bottom:0px with the same below code we will have footer
+    border-radius: 0;
+    width:100%;
+    z-index:1;
+}*/
+.item-5{
+    position: sticky;
+    top:0px;/*when we scroll item5 it scrolls with us until it hits the end of container.Sticky only works 
+     when we define top property value as the value represents space before the element will start scrolling
+     down with the page */
+}
+

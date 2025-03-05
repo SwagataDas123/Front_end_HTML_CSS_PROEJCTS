@@ -1,0 +1,89 @@
+@import url('https://fonts.googleapis.com/css2?family=Roboto:ital,wght@0,100..900;1,100..900&display=swap');
+*{/*resetting the default*/
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+html,body{
+    line-height: 1.4;
+    font-weight: 300;
+    font-family: "Roboto", serif;
+    scroll-behavior: smooth;
+}
+a{
+    text-decoration: none;
+}
+body{
+    display: flex;/*main and navigation side by side*/
+}
+header{
+    border:1px solid #ccc;
+    height:100vh;
+}
+nav h1{
+    font-size: 25px;
+    font-weight: 500;
+    padding:10px;
+    border-bottom:1px;
+    border-bottom:1px solid #ccc;
+}
+nav ul{
+    list-style: none;
+}
+nav ul li{
+    border:1px solid #ccc;
+    padding:10px;
+    color:black;
+}
+nav ul li:hover{
+    background: #ccc;
+    transition:0.3s ease-in-out;
+}
+/*main-section*/
+main{
+    padding:50px;
+    max-width:1200px;
+}
+section{
+    margin-bottom: 50px;
+}
+section article{
+    font-size: 15px;
+    display: flex;
+    flex-direction: column;
+    gap:20px;
+}
+section h2{
+    font-size: 25px;
+    font-weight:400;
+    border-bottom:1px solid #ccc;
+    margin-bottom: 20px;
+    padding-bottom: 10px;
+}
+section article ul{
+    margin-left: 20px;
+}
+section article ul li{
+    margin-bottom: 10px;
+}
+code{
+    text-align: left;
+    white-space:pre-line;/*the code will appear line by line*/
+    line-height: 1.5;
+    background-color: grey;
+    padding:5px;
+    margin:10px;
+    border-radius: 5px;
+}
+@media(max-width:480px)/*for mobile width*/
+{  body{
+    flex-direction: column;
+   
+}
+header{
+    height:200px;/*the full nav bar was taking full size so ...*/
+    overflow: hidden;/*for mobile width the navbar is overflowing so hiding that */
+    overflow-y: scroll;/*for mobile width the navbar is overflowing so hiding that and the navbar is scrollable */
+}
+   
+}
